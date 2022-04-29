@@ -13,6 +13,14 @@ app.use(express.static('public')); //specify location of static assests
 app.set('views', __dirname + '/views'); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
+/*app.use(require('./controllers/auth'));
+app.use(require('./controllers/author'));
+app.use(require('./controllers/authors'));
+app.use(require('./controllers/blogPost'));
+app.use(require('./controllers/chat'));
+app.use(require('./controllers/createBlogPost'));
+app.use(require('./controllers/index'));*/
+
 app.get('/', function(request, response) {
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
@@ -53,10 +61,11 @@ app.get('/login', function(request, response) {
 app.use("", function(request, response){
   response.status(404);
   response.setHeader('Content-Type', 'text/html')
-  response.render("error", {
+  response.render("error");
+/*  response.render("error", {
     "errorCode":"404",
     user: request.user
-  });
+  });*/
 });
 
 const port = process.env.PORT || 3000;
