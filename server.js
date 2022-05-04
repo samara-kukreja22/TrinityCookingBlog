@@ -1,26 +1,27 @@
 const express = require('express');
+const app = express();
   router = express.Router();
 const fs = require('fs');
 const ejs = require('ejs');
 const methodOverride = require('method-override');
-
-const app = express();
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(methodOverride('_method'));//middleware for CRUD:UPDATE and DELETE
-app.use(express.static('public')); //specify location of static assests
+app.use(express.static('public')); //specify location of static assests//current CDN
 app.set('views', __dirname + '/views'); //specify location of templates
 app.set('view engine', 'ejs'); //specify templating library
 
-/*app.use(require('./controllers/auth'));
+app.use(require('./controllers/auth'));
 app.use(require('./controllers/author'));
 app.use(require('./controllers/authors'));
-app.use(require('./controllers/blogPost'));
+app.use(require('./controllers/blogPosts'));
 app.use(require('./controllers/chat'));
 app.use(require('./controllers/createBlogPost'));
-app.use(require('./controllers/index'));*/
-
+app.use(require('./controllers/index'));
+/*
 app.get('/', function(request, response) {
   response.status(200);
   response.setHeader('Content-Type', 'text/html')
@@ -56,7 +57,7 @@ app.get('/login', function(request, response) {
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.render("login");
-});
+});*/
 
 app.use("", function(request, response){
   response.status(404);
@@ -67,6 +68,10 @@ app.use("", function(request, response){
     user: request.user
   });*/
 });
+
+
+let socketapi =require('./controllers/socketConnections');
+socketapi.io.attach(server);//attach sockets to the server
 
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
