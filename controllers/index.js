@@ -1,24 +1,38 @@
 const express = require('express'),
   router = express.Router();
-
+const Users = require('../models/users');
 router.get('/', function(request, response) {
   response.status(200);
-  response.setHeader('Content-Type', 'text/html')
-  response.render("index");
+  response.setHeader('Content-Type', 'text/html');
+  let user = null;
+  if(request.user){
+    user = Users.getUser(request.user._json.email);
+  }
+  response.render("index", {
+    user: user
+  });
 });
 router.get('/login', function(request, response) {
   response.status(200);
-  response.setHeader('Content-Type', 'text/html')
+  response.setHeader('Content-Type', 'text/html');
+  let user = null;
+  if(request.user){
+    user = Users.getUser(request.user._json.email);
+  }
   response.render("login", {
-    user: request.user
+    user: user
   });
 });
 router.use("", function(request, response){
   response.status(404);
-  response.setHeader('Content-Type', 'text/html')
+  response.setHeader('Content-Type', 'text/html');
+  let user = null;
+  if(request.user){
+    user = Users.getUser(request.user._json.email);
+  }
   response.render("error", {
     "errorCode":"404",
-    user: request.user
+    user: user
   });
 });
 

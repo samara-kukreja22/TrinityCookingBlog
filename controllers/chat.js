@@ -1,16 +1,18 @@
 const express = require('express'),
   router = express.Router();
 
+const Users = require('../models/users');
+
   router.get('/chat', function(request, response) {
   if(request.user){
-    let user = User.getUser(request.user._json.email);
+    let user = Users.getUser(request.user._json.email);
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
-    response.render("index", {
-      userFirstName: user.firstName
+    response.render("chat", {
+      userFirstName: user.name
     });
   }else{
-    response.redirect('/login');
+    response.redirect('/');
   }
 });
 

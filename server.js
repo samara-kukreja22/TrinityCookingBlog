@@ -20,6 +20,7 @@ app.use(require('./controllers/authors'));
 app.use(require('./controllers/blogPosts'));
 app.use(require('./controllers/chat'));
 app.use(require('./controllers/createBlogPost'));
+app.use(require('./controllers/editProfile'));
 app.use(require('./controllers/index'));
 /*
 app.get('/', function(request, response) {
@@ -74,6 +75,6 @@ let socketapi =require('./controllers/socketConnections');
 socketapi.io.attach(server);//attach sockets to the server
 
 const port = process.env.PORT || 3000;
-app.listen(port, function() {
+server.listen(port, function() {
   console.log('Server started at http://localhost:'+port+'.')
 });

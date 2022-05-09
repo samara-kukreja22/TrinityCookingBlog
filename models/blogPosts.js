@@ -10,14 +10,43 @@
 */
 const fs = require('fs');
 
-exports.insertPost = function(user, date, image, title, type, ingredients, instructions){
-  //
+exports.readPosts =  function(){
+  let posts = JSON.parse(fs.readFileSync(__dirname+'/../data/blogPosts.json'));
+  return posts;
+}
+
+exports.writePosts =  function(posts){
+  fs.writeFileSync(__dirname+'/../data/blogPosts.json', JSON.stringify(posts));
+}
+
+exports.insertPost = function(user, image, title, type, ingredients, instructions){
+  let posts = exports.readPosts();
+  let post = {
+    "id": posts.length,
+    "user": user,
+    "date": new Date(),
+    "picture": image,
+    "title": title,
+    "type": type,
+    "ingredients": ingredients,
+    "instructions": instructions
+  };
+  posts.push(post);
+  exports.writePosts(posts);
 }
 
 exports.selectPostsByUser = function(user){
-
+  let posts = exports.readPosts();
+  let userPosts = [];
+  posts.forEach(post=>{
+    if(post.user==user){
+      userPosts.push(post);
+    }
+  });
+  return userPosts;
 }
 
 exports.selectPostsByRecent = function(num){
-  //selects the num number of posts that are most recent
+  let posts = exports.readPosts();
+  return posts.slice(-num);//start from that number and count backwards
 }

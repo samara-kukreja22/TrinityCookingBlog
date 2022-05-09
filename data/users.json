@@ -1,1 +1,16 @@
-[]
+{
+  "justin.test1@trinityschoolnyc.org": {
+    "name": "justin.test1",
+    "id": "justin.test1@trinityschoolnyc.org",
+    "date": "2022-03-29T18:45:25.195Z",
+    "permission": 0,
+    "picNum": 0
+  },
+  "justin.test2@trinityschoolnyc.org": {
+    "user": "justin.test2",
+    "id": "justin.test2@trinityschoolnyc.org",
+    "date": "2022-03-29T18:45:25.195Z",
+    "permission": 0,
+    "picNum": 1
+  }
+}

@@ -1,6 +1,12 @@
 <%- include('partials/header') -%>
-
-    <h1><center>Welcome to the Trinity Cooking Blog!</center></h1>
+    <% if(user){%>
+    <h1><center>Welcome <%-user.name%>, to the Trinity Cooking Blog!</center></h1>
     <br>
-    <center><h3><a href="/login">Login</a></h3></center><br>
-    <h3>Your Blog Posts:</h3>
+    <h3>My Blog Posts:</h3>
+    <h6>insert the users blog posts here</h6>
+    <%} else{%>
+    <br>
+    <center><h1>Trinity Cooking Blog!</h1>
+    <br><br>
+    <center><h3><a href="/login">Login</a></h3></center>
+    <%}%>

@@ -8,20 +8,45 @@
 */
 const fs = require('fs');
 
-exports.getUser =  function(id){
-  return null;
-  //asking for a particular user use their gogle id
-  //look for the user with the id and give back the user
+exports.readUsers =  function(){
+  let users = JSON.parse(fs.readFileSync(__dirname+'/../data/users.json'));
+  return users;
 }
 
-exports.insertUser = function(id, date){
-  //to insert a user have this info and make up the rest
+exports.writeUsers =  function(users){
+  fs.writeFileSync(__dirname+'/../data/users.json', JSON.stringify(users));
+}
+
+exports.getUser =  function(id){
+  let users = exports.readUsers();
+  return users[id];
+}
+
+exports.insertUser = function(id){
+  let users = exports.readUsers();
+  let username = id.substring(0,id.search("@"));
+  let user =
+   {
+    "user": username,
+    "id": id,
+    "date": new Date(),
+    "permission": 0,
+    "picNum": 0
+  };
+  users[id] = user;
+  exports.writeUsers(users);
 }
 
 exports.updateDisplayName = function(id, displayName){
-  //can update the displayName
+  let users = exports.readUsers();
+  users[id].user = displayName;
+  exports.writeUsers(users);
 }
 
 exports.addPicNum = function(id){
-  //increases the picNum for the given user
+  let users = exports.readUsers();
+  let num = users[id].picNum;
+  users[id].picNum++;
+  exports.writeUsers(users);
+  return num;
 }
