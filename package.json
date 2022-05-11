@@ -1,0 +1,30 @@
+{
+  "name": "trinitycookingblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samara-kukreja22/TrinityCookingBlog.git"
+  },
+  "author": "Samara Kukreja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samara-kukreja22/TrinityCookingBlog/issues"
+  },
+  "homepage": "https://github.com/samara-kukreja22/TrinityCookingBlog#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "googleapis": "^100.0.0",
+    "jsdoc": "^3.6.10",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.4",
+    "passport": "^0.5.2",
+    "passport-oauth": "^1.0.0",
+    "socket.io": "^4.5.0"
+  }
+}

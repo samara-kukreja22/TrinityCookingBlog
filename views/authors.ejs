@@ -1,7 +1,8 @@
 <%- include ('partials/header'); %>
       <section id="authors">
         <h2><center>Authors</center></h2>
-        <h3><a href="/author">Author</a></h3>
-        <h6>insert list of authors here that goes to their individual blog posts</h6>
+        <% authors.forEach(author =>{%>
+          <h3><a href = "/author/<%=author%>"><%=author%></a></h3><br/>
+        <%});%>
       </section>
       <%- include ('partials/footer');  %>

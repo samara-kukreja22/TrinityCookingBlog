@@ -23,7 +23,7 @@ exports.insertPost = function(user, image, title, type, ingredients, instruction
   let posts = exports.readPosts();
   let post = {
     "id": posts.length,
-    "user": user,
+    "name": user,
     "date": new Date(),
     "picture": image,
     "title": title,
@@ -49,4 +49,16 @@ exports.selectPostsByUser = function(user){
 exports.selectPostsByRecent = function(num){
   let posts = exports.readPosts();
   return posts.slice(-num);//start from that number and count backwards
+}
+
+exports.selectAuthors = function(){
+  let posts = exports.readPosts();
+  //create a set
+  let authors = new Set();
+  //add each author to the set
+  posts.forEach(post=>{
+    authors.add(post.name);
+  });
+  //return the set
+  return authors;
 }

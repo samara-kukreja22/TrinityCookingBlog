@@ -1,16 +1,13 @@
-<!--
-    Display information about the author such as the profile image and name
-    Display a list of Blog Post titles that link to each post
-    Data passed in would be a single author entity, list of blog post entities
-    -->
-    <%- include ('partials/header'); %>
 
-    <h2><center>Author Name</center></h2>
-      <section id="author">
-      <h3><u>Post Title</u></h3>
-      <h3>Image Photo</h3>
-      <h4>Post Type</h4>
-      <h4>Ingredients:</h4>
-      <h4>Instructions: </h4>
-      <h6>display the authors blog posts</h6>
-    </section>
+  <%- include ('partials/header'); %>
+<center><h1><%=author%></h1></center>
+    <section id="posts">
+    <% for(let i = 0; i < posts.length; i++){%>
+      <h4><center><u><%=posts[i].title%></u></center></h4>
+      <h5><center>By: <%=posts[i].author%></center></h5>
+      <center><img src="<%=posts[i].photo%>" height=150><br></center>
+      <h6><center><%=posts[i].type%></center></h6>
+      <h6><center><%=posts[i].ingredients%></center></h6>
+      <p><center><%=posts[i].instructions%></center></p>
+    <%}%>
+</section>
