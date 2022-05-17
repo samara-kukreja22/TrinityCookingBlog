@@ -2,7 +2,7 @@ const express = require('express'),
   router = express.Router();
 const multer = require('multer');
 
-  const Users = require('../models/users');
+  const User = require('../models/users');
   const Posts = require('../models/blogPosts');
   let File = require('../models/file_model');
 
@@ -47,7 +47,7 @@ router.post('/createBlogPost', privateUpload.any(), async (request, response) =>
     let type = request.body.type;
     let ingredients = request.body.ingredients.split(',');
     let instructions = request.body.instructions;
-    Posts.insertPost(author, photo, title, type, ingredients, instructions);
+    Posts.insertPost(user.id, author, photo, title, type, ingredients, instructions);
     response.status(200);
     response.setHeader('Content-Type', 'text/html')
     response.redirect("/blogPosts");

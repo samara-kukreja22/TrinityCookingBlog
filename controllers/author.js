@@ -6,7 +6,7 @@ const Posts = require('../models/blogPosts');
 
   router.get('/author/:name', function(request, response) {
     let name = request.params.name;
-    let posts = Posts.selectPostsByUser(name);
+    let posts = Posts.selectPostsByName(name);
       response.status(200);
       response.setHeader('Content-Type', 'text/html');
       response.render("author", {

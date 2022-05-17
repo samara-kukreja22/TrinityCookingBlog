@@ -1,16 +1,1 @@
-[
-  {
-    "id": 0,
-    "name": "justin.test1",
-    "date":"2022-03-29T18:45:25.195Z",
-    "picture":"",
-    "title": "Lemonade",
-    "type": "Beverage",
-    "ingredients": [
-      "lemon",
-      " water",
-      " sugar"
-    ],
-    "instructions": "Slice lemons and then add water and sugar to glass"
-  }
-]
+[{"id":0,"user":"justin.test1@trinityschoolnyc.org","name":"justin.test1","date":"2022-03-29T18:45:25.195Z","picture":"","title":"Lemonade","type":"Beverage","ingredients":["lemon"," water"," sugar"],"instructions":"Slice lemons and then add water and sugar to glass"},{"id":1,"user":"justin.test1@trinityschoolnyc.org","name":"justin.test1","date":"2022-05-17T23:22:18.042Z","picture":"https://drive.google.com/uc?export=view&id=1jElrpnCR2hUdwQqIFfjUMI34nYyImhhz","title":"test","ingredients":["test"," test"],"instructions":"test"}]

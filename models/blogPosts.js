@@ -19,11 +19,12 @@ exports.writePosts =  function(posts){
   fs.writeFileSync(__dirname+'/../data/blogPosts.json', JSON.stringify(posts));
 }
 
-exports.insertPost = function(user, image, title, type, ingredients, instructions){
+exports.insertPost = function(user, name, image, title, type, ingredients, instructions){
   let posts = exports.readPosts();
   let post = {
     "id": posts.length,
-    "name": user,
+    "user": user,
+    "name": name,
     "date": new Date(),
     "picture": image,
     "title": title,
@@ -36,10 +37,24 @@ exports.insertPost = function(user, image, title, type, ingredients, instruction
 }
 
 exports.selectPostsByUser = function(user){
+  console.log("selecting posts by user: ");
+  console.log(user);
   let posts = exports.readPosts();
   let userPosts = [];
   posts.forEach(post=>{
     if(post.user==user){
+      userPosts.push(post);
+    }
+  });
+  console.log(userPosts);
+  return userPosts;
+}
+
+exports.selectPostsByName = function(name){
+  let posts = exports.readPosts();
+  let userPosts = [];
+  posts.forEach(post=>{
+    if(post.name==name){
       userPosts.push(post);
     }
   });

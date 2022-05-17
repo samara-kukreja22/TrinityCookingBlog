@@ -3,7 +3,16 @@
     <h1><center>Welcome <%-user.name%>, to the Trinity Cooking Blog!</center></h1>
     <br>
     <h3>My Blog Posts:</h3>
-    <h6>insert the users blog posts here</h6>
+    <section id="posts">
+    <% for(let i = 0; i < posts.length; i++){%>
+      <h4><center><u><%=posts[i].title%></u></center></h4>
+      <h5><center>By: <%=posts[i].name%></center></h5>
+      <center><img src="<%=posts[i].picture%>" height=150><br></center>
+      <h6><center><%=posts[i].type%></center></h6>
+      <h6><center><%=posts[i].ingredients%></center></h6>
+      <p><center><%=posts[i].instructions%></center></p>
+    <%}%>
+</section>
     <%} else{%>
     <br>
     <center><h1>Trinity Cooking Blog!</h1>

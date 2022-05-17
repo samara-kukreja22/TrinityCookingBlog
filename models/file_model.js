@@ -16,7 +16,7 @@ const driveService = google.drive({version: 'v3', auth});
 
 let fileMetadata = {
   'name': Date.now()+'_recipeimage.png',
-  'parents':  ['1PdsY8TKspLcgMRIM0hYtaCAWby4cZAhN']//gohde: TrinLabs/Cookbook/images
+  'parents':  ['1Y_AUBPYW7Ima6Zzwa2qB38VVU3ntfF1W']//gohde: TrinLabs/Cookbook/images
 };
 
 
